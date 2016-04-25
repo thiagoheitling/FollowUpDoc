@@ -112,13 +112,53 @@
                                             <segue destination="eAl-rO-ZAh" kind="presentation" identifier="AddItem" id="2fh-LL-6le"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpA-aB-Etc">
+                                        <rect key="frame" x="349.5" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="HvC-Bl-Drd"/>
+                                            <constraint firstAttribute="width" constant="50" id="wY1-TT-GLe"/>
+                                        </constraints>
+                                        <state key="normal" image="shareButton2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdL-ow-Msh">
+                                        <rect key="frame" x="530" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="KgT-sw-j3u"/>
+                                            <constraint firstAttribute="height" constant="50" id="VVE-uS-peE"/>
+                                        </constraints>
+                                        <state key="normal" image="profileButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVc-RK-LdN">
+                                        <rect key="frame" x="199.5" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="EEg-ND-XYc"/>
+                                            <constraint firstAttribute="width" constant="50" id="yYb-No-VL1"/>
+                                        </constraints>
+                                        <state key="normal" image="exercisesButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDK-ym-9is">
+                                        <rect key="frame" x="20" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="oyB-Sw-NMw"/>
+                                            <constraint firstAttribute="height" constant="50" id="vAP-3A-gfM"/>
+                                        </constraints>
+                                        <state key="normal" image="historyButton2"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="BpA-aB-Etc" firstAttribute="leading" secondItem="kC5-PO-jCG" secondAttribute="trailing" constant="25" id="52h-ZD-WM1"/>
+                                    <constraint firstAttribute="bottom" secondItem="XDK-ym-9is" secondAttribute="bottom" id="6ZK-N7-Tci"/>
+                                    <constraint firstAttribute="trailing" secondItem="wdL-ow-Msh" secondAttribute="trailing" constant="20" id="B35-iP-sOM"/>
                                     <constraint firstItem="kC5-PO-jCG" firstAttribute="top" secondItem="35C-Wl-N9j" secondAttribute="top" id="B5C-6U-teG"/>
                                     <constraint firstItem="kC5-PO-jCG" firstAttribute="centerX" secondItem="35C-Wl-N9j" secondAttribute="centerX" id="HM9-VB-Ail"/>
+                                    <constraint firstAttribute="bottom" secondItem="yVc-RK-LdN" secondAttribute="bottom" id="HOB-uU-jlq"/>
+                                    <constraint firstAttribute="bottom" secondItem="BpA-aB-Etc" secondAttribute="bottom" id="IDV-LZ-C2O"/>
+                                    <constraint firstItem="kC5-PO-jCG" firstAttribute="leading" secondItem="yVc-RK-LdN" secondAttribute="trailing" constant="25" id="QXO-Ez-kcG"/>
                                     <constraint firstAttribute="bottom" secondItem="kC5-PO-jCG" secondAttribute="bottom" id="WNl-SX-KJ4"/>
                                     <constraint firstAttribute="height" constant="50" id="Wsr-3L-ZOu"/>
+                                    <constraint firstItem="XDK-ym-9is" firstAttribute="leading" secondItem="35C-Wl-N9j" secondAttribute="leading" constant="20" id="guP-oP-2Wq"/>
+                                    <constraint firstAttribute="bottom" secondItem="wdL-ow-Msh" secondAttribute="bottom" id="jSc-Tz-qOr"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -313,8 +353,12 @@
     <resources>
         <image name="addNewEntryButton" width="61" height="61"/>
         <image name="addPicturePlaceHolder" width="520" height="316"/>
+        <image name="exercisesButton" width="372" height="372"/>
         <image name="graphImagePlaceHolder" width="828" height="640"/>
+        <image name="historyButton2" width="275" height="275"/>
         <image name="logo" width="256" height="256"/>
+        <image name="profileButton" width="140" height="140"/>
+        <image name="shareButton2" width="61" height="61"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2fh-LL-6le"/>
