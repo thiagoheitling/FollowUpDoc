@@ -26,7 +26,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         button.frame = CGRectMake(0, 0, 35, 35)
         let leftBarButton = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = leftBarButton
-        
     }
 
     // MARK: - Table view data source
@@ -48,7 +47,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.intensityLabel.text = "\(painItem.intensity)"
         cell.locationLabel.text = painItem.location
+        cell.dateLabel.text = painItem.date
         
+        cell.painLocationPhoto.image = painItem.image
+        cell.painLocationPhoto.layer.cornerRadius = cell.painLocationPhoto.frame.size.width/2
+        cell.painLocationPhoto.clipsToBounds = true
         
         return cell
     }
@@ -73,11 +76,47 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    // Override to support conditional editing of the table view.
+    // func to support conditional editing of the table view.
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
     
+    // func to support editing the table view.
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            painItems.removeAtIndex(indexPath.row)
+            //saveItems() needs ot implement this function to save on core
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "showDetails" {
+            
+            let painItemVC = segue.destinationViewController as! PainItemVC
+            
+            // Get the cell that generated this segue.
+            if let selectedItemCell = sender as? PainItemTableViewCell {
+                let indexPath = painItemsTableView.indexPathForCell(selectedItemCell)!
+                let selectedItem = painItems[indexPath.row]
+                painItemVC.pain = selectedItem
+            }
+        }
+        else if segue.identifier == "AddItem" {
+            print("Adding new meal.")
+        }
+    }
 }
 

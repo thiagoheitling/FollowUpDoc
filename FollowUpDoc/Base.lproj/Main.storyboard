@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FollowUpDoc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="FollowUpDoc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,11 +21,11 @@
                                 <rect key="frame" x="0.0" y="359" width="600" height="159"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PainItemTableViewCell" id="inn-KR-llC" customClass="PainItemTableViewCell" customModule="FollowUpDoc" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PainItemTableViewCell" id="inn-KR-llC" customClass="PainItemTableViewCell" customModule="FollowUpDoc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="inn-KR-llC" id="kUb-me-iN0">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date String" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnb-qv-mB5">
@@ -41,7 +41,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Int" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cH0-5V-1Ig">
-                                                    <rect key="frame" x="479" y="5" width="35" height="35"/>
+                                                    <rect key="frame" x="487" y="5" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="0fs-s5-p3a"/>
                                                         <constraint firstAttribute="width" constant="35" id="QNp-1S-aIk"/>
@@ -60,10 +60,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hnb-qv-mB5" firstAttribute="leading" secondItem="kUb-me-iN0" secondAttribute="leading" constant="15" id="A11-FP-zN7"/>
-                                                <constraint firstAttribute="trailing" secondItem="1pA-iy-6Tl" secondAttribute="trailing" constant="43" id="JB3-eo-mOM"/>
+                                                <constraint firstAttribute="trailing" secondItem="1pA-iy-6Tl" secondAttribute="trailing" constant="10" id="JB3-eo-mOM"/>
                                                 <constraint firstItem="1pA-iy-6Tl" firstAttribute="centerY" secondItem="kUb-me-iN0" secondAttribute="centerY" id="MYg-gJ-bw4"/>
                                                 <constraint firstItem="gq0-PP-u5k" firstAttribute="top" secondItem="hnb-qv-mB5" secondAttribute="bottom" constant="2" id="W7b-rw-Xlw"/>
-                                                <constraint firstItem="1pA-iy-6Tl" firstAttribute="leading" secondItem="cH0-5V-1Ig" secondAttribute="trailing" constant="8" id="Zje-Jo-ihH"/>
+                                                <constraint firstItem="1pA-iy-6Tl" firstAttribute="leading" secondItem="cH0-5V-1Ig" secondAttribute="trailing" id="Zje-Jo-ihH"/>
                                                 <constraint firstItem="gq0-PP-u5k" firstAttribute="leading" secondItem="kUb-me-iN0" secondAttribute="leading" constant="15" id="hbQ-og-C22"/>
                                                 <constraint firstItem="cH0-5V-1Ig" firstAttribute="centerY" secondItem="kUb-me-iN0" secondAttribute="centerY" id="k53-39-iMo"/>
                                                 <constraint firstItem="hnb-qv-mB5" firstAttribute="top" secondItem="kUb-me-iN0" secondAttribute="top" constant="5" id="vVr-uF-d2b"/>
@@ -73,7 +73,8 @@
                                             <outlet property="dateLabel" destination="hnb-qv-mB5" id="DXw-cv-jN7"/>
                                             <outlet property="intensityLabel" destination="cH0-5V-1Ig" id="scB-XY-9ae"/>
                                             <outlet property="locationLabel" destination="gq0-PP-u5k" id="AJv-Jt-mR2"/>
-                                            <outlet property="painImageView" destination="1pA-iy-6Tl" id="eiw-bD-VMX"/>
+                                            <outlet property="painLocationPhoto" destination="1pA-iy-6Tl" id="lBX-Ge-gZu"/>
+                                            <segue destination="eAl-rO-ZAh" kind="show" identifier="showDetails" id="ikl-FH-kRq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -147,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="363"/>
+            <point key="canvasLocation" x="1011" y="363"/>
         </scene>
         <!--Pain ItemVC-->
         <scene sceneID="Eff-Ib-xr8">
@@ -284,7 +285,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lA8-3c-vKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Uvy-te-cT3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="363"/>
+            <point key="canvasLocation" x="1750" y="363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mF2-UF-1eI">
@@ -315,4 +316,7 @@
         <image name="graphImagePlaceHolder" width="828" height="640"/>
         <image name="logo" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2fh-LL-6le"/>
+    </inferredMetricsTieBreakers>
 </document>

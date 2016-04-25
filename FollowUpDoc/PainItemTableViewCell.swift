@@ -13,7 +13,7 @@ class PainItemTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var intensityLabel: UILabel!
-    @IBOutlet weak var painImageView: UIView!
+    @IBOutlet weak var painLocationPhoto: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

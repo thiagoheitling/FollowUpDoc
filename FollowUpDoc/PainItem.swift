@@ -30,7 +30,7 @@ class PainItem: NSObject {
         
         super.init()
         
-        // Initialization should fail if there is no location or if the intensity is negative.
+        // Initialization should fail if there is no pain location or if the intensity is negative.
         if location.isEmpty || intensity < 0 {
             return nil
         }

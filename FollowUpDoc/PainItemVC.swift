@@ -19,13 +19,10 @@ class PainItemVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
 
-    var painLocation = ""
+    var painLocation = "location not set"
     var currentDateFormatted = String()
     
-    /*
-     This value is either passed by `PainTableView` in `prepareForSegue(_:sender:)`
-     or constructed as part of adding a new entry.
-     */
+//    This value is either passed by `PainTableView` in `prepareForSegue(_:sender:)` or constructed as part of adding a new entry.
     var pain: PainItem?
     
     override func viewDidLoad() {
@@ -166,21 +163,27 @@ class PainItemVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
 
         if saveButton === sender {
             
-            let location = painLocation ?? ""
+            let location = painLocation //?? ""
             let intensity = ratingControl.rating
-            let aDescription = painDescriptionTextView.text ?? ""
-            let image = newPhotoButton.imageView?.image
+            let aDescription = painDescriptionTextView.text //?? ""
+            
+            //if image has not been set, put the place holder
+            let image: UIImage
+            if newPhotoButton.imageView?.image == UIImage(named: "addPicturePlaceHolder") {
+                image = UIImage(named: "logo")!
+            } else {
+                image = (newPhotoButton.imageView?.image)!
+            }
             
             // formating date
             let formatter = NSDateFormatter()
             formatter.dateFormat = formatter.localizedFormat("MMMM dd, yyyy")
             formatter.timeZone = NSTimeZone(name: "US/Pacific")
-            //formatter.timeZone = NSTimeZone(name: "UTC")
             
             let currentDate = NSDate()
             currentDateFormatted = formatter.stringFromDate(currentDate)
             
-            pain = PainItem(location: location, intensity: intensity, description: aDescription, image: image!, date: currentDateFormatted)
+            pain = PainItem(location: location, intensity: intensity, description: aDescription, image: image, date: currentDateFormatted)
         }
     }
  
