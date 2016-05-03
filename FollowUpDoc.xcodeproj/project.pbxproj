@@ -18,6 +18,7 @@
 		D0F0F3A31CCCB4CF00BE3FC0 /* PainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0F3A21CCCB4CF00BE3FC0 /* PainItem.swift */; };
 		D0F0F3A51CCD2BAF00BE3FC0 /* NSDateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0F3A41CCD2BAF00BE3FC0 /* NSDateFormatter+Extensions.swift */; };
 		D0F0F3A71CCD428500BE3FC0 /* PainItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0F3A61CCD428500BE3FC0 /* PainItemTableViewCell.swift */; };
+		D0F0F3E91CD879AF00BE3FC0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0F3E81CD879AF00BE3FC0 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D0F0F3A21CCCB4CF00BE3FC0 /* PainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainItem.swift; sourceTree = "<group>"; };
 		D0F0F3A41CCD2BAF00BE3FC0 /* NSDateFormatter+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		D0F0F3A61CCD428500BE3FC0 /* PainItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainItemTableViewCell.swift; sourceTree = "<group>"; };
+		D0F0F3E81CD879AF00BE3FC0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				D0F0F3A21CCCB4CF00BE3FC0 /* PainItem.swift */,
 				D0F0F3A61CCD428500BE3FC0 /* PainItemTableViewCell.swift */,
 				D0F0F3A01CCB12BC00BE3FC0 /* RatingControl.swift */,
+				D0F0F3E81CD879AF00BE3FC0 /* HomeViewController.swift */,
 				D0C3C3FD1CC6EFB7002530CD /* ViewController.swift */,
 				D0F0F39E1CCAE12B00BE3FC0 /* PainItemVC.swift */,
 				D0F0F3A41CCD2BAF00BE3FC0 /* NSDateFormatter+Extensions.swift */,
@@ -215,6 +218,7 @@
 				D0F0F3A31CCCB4CF00BE3FC0 /* PainItem.swift in Sources */,
 				D0F0F3A11CCB12BC00BE3FC0 /* RatingControl.swift in Sources */,
 				D0F0F3A71CCD428500BE3FC0 /* PainItemTableViewCell.swift in Sources */,
+				D0F0F3E91CD879AF00BE3FC0 /* HomeViewController.swift in Sources */,
 				D0F0F39F1CCAE12B00BE3FC0 /* PainItemVC.swift in Sources */,
 				D0C3C3FE1CC6EFB7002530CD /* ViewController.swift in Sources */,
 				D0F0F3A51CCD2BAF00BE3FC0 /* NSDateFormatter+Extensions.swift in Sources */,

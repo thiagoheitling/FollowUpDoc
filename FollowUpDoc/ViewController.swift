@@ -20,12 +20,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
 
         self.title = "Follow Up Doc"
+        self.navigationController?.navigationBarHidden = false
         
-        let button: UIButton = UIButton(type: .Custom)
-        button.setImage(UIImage(named: "logo"), forState: UIControlState.Normal)
-        button.frame = CGRectMake(0, 0, 35, 35)
-        let leftBarButton = UIBarButtonItem(customView: button)
-        self.navigationItem.leftBarButtonItem = leftBarButton
     }
 
     // MARK: - Table view data source
@@ -42,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PainItemTableViewCell
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate pain item for the data source layout.
         let painItem = painItems[indexPath.row]
         
         cell.intensityLabel.text = "\(painItem.intensity)"
