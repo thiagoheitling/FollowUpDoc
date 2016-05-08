@@ -43,8 +43,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.intensityLabel.text = "\(painItem.intensity)"
         cell.locationLabel.text = painItem.location
-        cell.dateLabel.text = painItem.date
         
+        // formating date
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = formatter.localizedFormat("MMMM dd, yyyy")
+        formatter.timeZone = NSTimeZone(name: "US/Pacific")
+        
+        
+        let dateString = formatter.stringFromDate(painItem.date)
+        
+        cell.dateLabel.text = dateString
         cell.painLocationPhoto.image = painItem.image
         cell.painLocationPhoto.layer.cornerRadius = cell.painLocationPhoto.frame.size.width/2
         cell.painLocationPhoto.clipsToBounds = true

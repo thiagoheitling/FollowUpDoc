@@ -16,11 +16,11 @@ class PainItem: NSObject {
     let intensity: NSInteger
     let aDescription: String?
     let image: UIImage?
-    let date: String
+    let date: NSDate
     
     // MARK: Initialization
     
-    init?(location: String, intensity: NSInteger, description: String, image: UIImage, date: String) {
+    init?(location: String, intensity: NSInteger, description: String, image: UIImage, date: NSDate) {
         
         self.location = location
         self.intensity = intensity
