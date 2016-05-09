@@ -8,13 +8,17 @@
 
 import UIKit
 import RealmSwift
+import BEMSimpleLineGraph
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate {
 
+    // MARK: Outlets
     @IBOutlet weak var painItemsTableView: UITableView!
-    
+    @IBOutlet weak var graphView: BEMSimpleLineGraphView!
+
     // MARK: Properties
     let painItems = try! Realm().objects(PainItem).sorted("date", ascending: false)
+    let painItemsOnGraph = try! Realm().objects(PainItem).sorted("date", ascending: true)
     let cellIdentifier = "PainItemTableViewCell"
     
     override func viewDidLoad() {
@@ -22,12 +26,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         self.title = "Follow Up Doc"
         self.navigationController?.navigationBarHidden = false
+        
+        graphView.delegate = self
+        graphView.dataSource = self
+        
+        graphView.enableBezierCurve = true
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         painItemsTableView.reloadData()
+        graphView.reloadGraph()
     }
     
     // MARK: - Table view data source
@@ -95,6 +105,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 realm.delete(painItems[indexPath.row])
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            graphView.reloadGraph()
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -103,6 +114,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: - BEMSimpleLineGraph Deletages
+    func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+        
+        return painItemsOnGraph.count
+    }
+    
+    func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
+        
+        return CGFloat(painItemsOnGraph[index].intensity)
     }
     
     // MARK: - Navigation

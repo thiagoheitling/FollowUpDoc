@@ -93,17 +93,11 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graphImagePlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="QLY-uP-oRM">
-                                <rect key="frame" x="0.0" y="64" width="600" height="260"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="2UM-N0-Tq3"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35C-Wl-N9j">
                                 <rect key="frame" x="0.0" y="520" width="600" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC5-PO-jCG">
-                                        <rect key="frame" x="274.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="275" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="eqU-E9-dvi"/>
                                             <constraint firstAttribute="height" constant="50" id="xd2-N8-ygq"/>
@@ -114,7 +108,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpA-aB-Etc">
-                                        <rect key="frame" x="349.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="350" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="HvC-Bl-Drd"/>
                                             <constraint firstAttribute="width" constant="50" id="wY1-TT-GLe"/>
@@ -130,7 +124,7 @@
                                         <state key="normal" image="profileButton"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVc-RK-LdN">
-                                        <rect key="frame" x="199.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="200" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="EEg-ND-XYc"/>
                                             <constraint firstAttribute="width" constant="50" id="yYb-No-VL1"/>
@@ -162,25 +156,44 @@
                                     <constraint firstAttribute="bottom" secondItem="wdL-ow-Msh" secondAttribute="bottom" id="jSc-Tz-qOr"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuM-FC-JVe" customClass="BEMSimpleLineGraphView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="260"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="uUU-ho-OqV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorBottom">
+                                        <color key="value" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorTop">
+                                        <color key="value" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="widthLine">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YuM-FC-JVe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3gC-OG-0Hi"/>
                             <constraint firstItem="Mr7-id-bE7" firstAttribute="top" secondItem="HfP-ao-6QP" secondAttribute="bottom" id="8dF-5f-Xc5"/>
                             <constraint firstAttribute="trailing" secondItem="HfP-ao-6QP" secondAttribute="trailing" id="JXW-xC-Yu1"/>
                             <constraint firstAttribute="trailing" secondItem="Mr7-id-bE7" secondAttribute="trailing" id="KaF-gc-Fbl"/>
-                            <constraint firstItem="HfP-ao-6QP" firstAttribute="top" secondItem="QLY-uP-oRM" secondAttribute="bottom" id="PVl-YL-i5K"/>
+                            <constraint firstItem="YuM-FC-JVe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sg3-v6-fkw"/>
                             <constraint firstItem="HfP-ao-6QP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VCS-rN-Dpg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="35C-Wl-N9j" secondAttribute="bottom" constant="30" id="YNe-x3-KgX"/>
-                            <constraint firstItem="QLY-uP-oRM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Yvw-g8-Dzt"/>
+                            <constraint firstAttribute="trailing" secondItem="YuM-FC-JVe" secondAttribute="trailing" id="bft-2D-RB1"/>
                             <constraint firstAttribute="trailing" secondItem="35C-Wl-N9j" secondAttribute="trailing" id="gVC-bZ-jTM"/>
                             <constraint firstItem="35C-Wl-N9j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="noP-aZ-hv4"/>
+                            <constraint firstItem="HfP-ao-6QP" firstAttribute="top" secondItem="YuM-FC-JVe" secondAttribute="bottom" id="qGY-gT-vW0"/>
                             <constraint firstItem="35C-Wl-N9j" firstAttribute="top" secondItem="Mr7-id-bE7" secondAttribute="bottom" constant="2" id="rOD-wj-SLb"/>
-                            <constraint firstAttribute="trailing" secondItem="QLY-uP-oRM" secondAttribute="trailing" id="rW4-xx-ZMf"/>
                             <constraint firstItem="Mr7-id-bE7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vjJ-ER-97F"/>
-                            <constraint firstItem="QLY-uP-oRM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ytn-xE-0Pq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="graphView" destination="YuM-FC-JVe" id="HH6-e0-Fas"/>
                         <outlet property="painItemsTableView" destination="Mr7-id-bE7" id="7vI-3g-26k"/>
                     </connections>
                 </viewController>
@@ -449,7 +462,6 @@
         <image name="contact_home" width="495" height="453"/>
         <image name="exercices_home" width="495" height="453"/>
         <image name="exercisesButton" width="372" height="372"/>
-        <image name="graphImagePlaceHolder" width="828" height="640"/>
         <image name="historyButton2" width="275" height="275"/>
         <image name="history_home" width="495" height="453"/>
         <image name="logo" width="256" height="256"/>

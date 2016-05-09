@@ -20,6 +20,7 @@
 		D0F0F3A71CCD428500BE3FC0 /* PainItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0F3A61CCD428500BE3FC0 /* PainItemTableViewCell.swift */; };
 		D0F0F3E91CD879AF00BE3FC0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0F3E81CD879AF00BE3FC0 /* HomeViewController.swift */; };
 		D0F507C71CE0410F0014D0DB /* Pods_FollowUpDoc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA12F9F23D256CE0FE2F3FF /* Pods_FollowUpDoc.framework */; };
+		D0F507D21CE052220014D0DB /* FollowUpDoc-Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F507D11CE052220014D0DB /* FollowUpDoc-Bridging-Header.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,9 @@
 		D0F507C31CE036E70014D0DB /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../Library/Developer/Xcode/DerivedData/FollowUpDoc-ewpwewnwgovumbcnhhnphzbbgtvu/Build/Products/Debug-iphoneos/RealmSwift.framework"; sourceTree = "<group>"; };
 		D0F507C51CE036ED0014D0DB /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../Library/Developer/Xcode/DerivedData/FollowUpDoc-ewpwewnwgovumbcnhhnphzbbgtvu/Build/Products/Debug-iphoneos/Realm.framework"; sourceTree = "<group>"; };
 		D0F507C91CE045D70014D0DB /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../Library/Developer/Xcode/DerivedData/FollowUpDoc-ewpwewnwgovumbcnhhnphzbbgtvu/Build/Products/Debug-iphonesimulator/Realm.framework"; sourceTree = "<group>"; };
+		D0F507D01CE052210014D0DB /* FollowUpDoc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FollowUpDoc-Bridging-Header.h"; sourceTree = "<group>"; };
+		D0F507D11CE052220014D0DB /* FollowUpDoc-Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FollowUpDoc-Bridging-Header.m"; sourceTree = "<group>"; };
+		D0F507D31CE052690014D0DB /* BEMSimpleLineGraph.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BEMSimpleLineGraph.framework; path = "Pods/../build/Debug-iphoneos/BEMSimpleLineGraph.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		A73A5D8FC681CBC011E6C102 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0F507D31CE052690014D0DB /* BEMSimpleLineGraph.framework */,
 				D0F507C91CE045D70014D0DB /* Realm.framework */,
 				D0F507C51CE036ED0014D0DB /* Realm.framework */,
 				D0F507C31CE036E70014D0DB /* RealmSwift.framework */,
@@ -94,11 +99,13 @@
 		D0C3C3EF1CC6EFB7002530CD = {
 			isa = PBXGroup;
 			children = (
+				D0F507D11CE052220014D0DB /* FollowUpDoc-Bridging-Header.m */,
 				D0C3C3FA1CC6EFB7002530CD /* FollowUpDoc */,
 				D0C3C40F1CC6EFB7002530CD /* FollowUpDocTests */,
 				D0C3C3F91CC6EFB7002530CD /* Products */,
 				F53B18E34B73FCE5F124B338 /* Pods */,
 				A73A5D8FC681CBC011E6C102 /* Frameworks */,
+				D0F507D01CE052210014D0DB /* FollowUpDoc-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,6 +312,7 @@
 				D0F0F3A71CCD428500BE3FC0 /* PainItemTableViewCell.swift in Sources */,
 				D0F0F3E91CD879AF00BE3FC0 /* HomeViewController.swift in Sources */,
 				D0F0F39F1CCAE12B00BE3FC0 /* PainItemVC.swift in Sources */,
+				D0F507D21CE052220014D0DB /* FollowUpDoc-Bridging-Header.m in Sources */,
 				D0C3C3FE1CC6EFB7002530CD /* ViewController.swift in Sources */,
 				D0F0F3A51CCD2BAF00BE3FC0 /* NSDateFormatter+Extensions.swift in Sources */,
 				D0C3C3FC1CC6EFB7002530CD /* AppDelegate.swift in Sources */,
@@ -440,6 +448,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -448,6 +457,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thiagoheitling.FollowUpDoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FollowUpDoc-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -457,6 +468,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -465,6 +477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thiagoheitling.FollowUpDoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FollowUpDoc-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -1,4 +1,5 @@
 PODS:
+  - BEMSimpleLineGraph (4.1)
   - Realm (0.101.0):
     - Realm/Headers (= 0.101.0)
   - Realm/Headers (0.101.0)
@@ -6,9 +7,11 @@ PODS:
     - Realm (= 0.101.0)
 
 DEPENDENCIES:
+  - BEMSimpleLineGraph
   - RealmSwift
 
 SPEC CHECKSUMS:
+  BEMSimpleLineGraph: 44fd451f27f8e9cf96f2da5bea27603093576dd1
   Realm: b21596d6d7e1c054f6fae967d27263d2593ca309
   RealmSwift: 5247501bcd68b9db3a718cba808e1ce45ba67034
 

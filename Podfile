@@ -6,6 +6,7 @@ use_frameworks!
 target 'FollowUpDoc' do
 
 pod ’RealmSwift'
+pod 'BEMSimpleLineGraph'
 
 end
 
