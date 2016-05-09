@@ -7,19 +7,28 @@
 //
 
 import UIKit
+import RealmSwift
 
-class PainItem: NSObject {
+class PainItem: Object {
     
     // MARK: - Properties
+    dynamic var location: String = ""
+    dynamic var intensity: NSInteger = 0
+    dynamic var aDescription: String = ""
+    dynamic var image: NSData?
+    dynamic var date = NSDate()
     
+    /*
     let location: String
     let intensity: NSInteger
     let aDescription: String?
     let image: UIImage?
     let date: NSDate
+     */
     
+ 
     // MARK: Initialization
-    
+    /*
     init?(location: String, intensity: NSInteger, description: String, image: UIImage, date: NSDate) {
         
         self.location = location
@@ -35,4 +44,6 @@ class PainItem: NSObject {
             return nil
         }
     }
+    */
+    
 }

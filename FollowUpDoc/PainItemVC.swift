@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PainItemVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -22,17 +23,23 @@ class PainItemVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     var painLocation = "lower-back"
     
 //    This value is either passed by `PainTableView` in `prepareForSegue(_:sender:)` or constructed as part of adding a new entry.
-    var pain: PainItem?
+    var pain = PainItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // set up views if editing an existing pain Item
-        if let painItem = pain {
-            painDescriptionTextView.text = painItem.aDescription
-            self.newPhotoButton.setImage(painItem.image, forState: .Normal)
-            ratingControl.rating = painItem.intensity
+
+        painDescriptionTextView.text = pain.aDescription
+        
+        //retrieving image
+        if pain.image != nil {
+            let image = UIImage.init(data: pain.image!)
+            self.newPhotoButton.setImage(image, forState: .Normal)
         }
+            ratingControl.rating = pain.intensity
+        
+
         
         // textfield
         painDescriptionTextView.layer.borderWidth = 1
@@ -162,9 +169,23 @@ class PainItemVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
 
         if saveButton === sender {
             
-            let location = painLocation //?? ""
-            let intensity = ratingControl.rating
-            let aDescription = painDescriptionTextView.text //?? ""
+            addNewItem()
+            
+            print("New item added")
+        }
+    }
+    
+    // MARK: - Realm Methods
+    
+    func addNewItem() {
+            
+            // get the current date
+            let currentDate = NSDate()
+            pain.date = currentDate
+            
+            pain.location = painLocation
+            pain.aDescription = painDescriptionTextView.text
+            pain.intensity = ratingControl.rating
             
             //if image has not been set, put the place holder
             let image: UIImage
@@ -174,11 +195,17 @@ class PainItemVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                 image = (newPhotoButton.imageView?.image)!
             }
             
-            let currentDate = NSDate()
+            // saving the image
+            let imageData = NSData(data: UIImageJPEGRepresentation(image, 1.0)!)
             
-            pain = PainItem(location: location, intensity: intensity, description: aDescription, image: image, date: currentDate)
+            pain.image = imageData
+            
+            let realm = try! Realm()
+            try! realm.write{
+            realm.add(pain)
+                
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
+
         }
     }
- 
-
 }

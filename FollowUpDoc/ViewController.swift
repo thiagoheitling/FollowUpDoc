@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var painItemsTableView: UITableView!
     
     // MARK: Properties
-    var painItems = [PainItem]()
+    let painItems = try! Realm().objects(PainItem).sorted("date", ascending: false)
     let cellIdentifier = "PainItemTableViewCell"
     
     override func viewDidLoad() {
@@ -21,9 +22,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         self.title = "Follow Up Doc"
         self.navigationController?.navigationBarHidden = false
-        
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        painItemsTableView.reloadData()
+    }
+    
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -53,7 +59,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let dateString = formatter.stringFromDate(painItem.date)
         
         cell.dateLabel.text = dateString
-        cell.painLocationPhoto.image = painItem.image
+        
+        //retrieving image
+        let image = UIImage.init(data: painItem.image!)
+        cell.painLocationPhoto.image = image
         cell.painLocationPhoto.layer.cornerRadius = cell.painLocationPhoto.frame.size.width/2
         cell.painLocationPhoto.clipsToBounds = true
         
@@ -62,21 +71,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func unwindToMainVC(sender: UIStoryboardSegue) {
         
-        if let sourceViewController = sender.sourceViewController as? PainItemVC, pain = sourceViewController.pain {
+        if sender.sourceViewController is PainItemVC {
             
             if let selectedIndexPath = painItemsTableView.indexPathForSelectedRow {
                 // Update an existing pain item
-                painItems[selectedIndexPath.row] = pain
                 painItemsTableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
             }
-            else {
-                // Add a new meal
-                let newIndexPath = NSIndexPath(forRow: painItems.count, inSection: 0)
-                painItems.append(pain)
-                painItemsTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-            }
-            
-            // add here the method to save the pain items on core
         }
     }
     
@@ -90,8 +90,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            painItems.removeAtIndex(indexPath.row)
-            //saveItems() needs ot implement this function to save on core
+            let realm = try! Realm()
+            try! realm.write{
+                realm.delete(painItems[indexPath.row])
+            }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -119,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         else if segue.identifier == "AddItem" {
-            print("Adding new meal.")
+            print("Start adding a new meal.")
         }
     }
 }
